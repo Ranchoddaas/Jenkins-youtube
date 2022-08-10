@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    environment {
+        name  = "sachin"
+    }
+
+    stages {
+        stage('Run a command') {
+            steps {
+          
+           sh 'date' 
+            }
+        }
+    
+                stage('Build'){
+            steps {
+                echo 'deploy on  test'
+            }
+            }
+       
+        
+                  stage('Environment variable'){
+            steps {
+             sh ' echo  "${BUILD_ID}" '
+       sh 'echo "${name}" '
+            }
+                  }
+        
+    }
+}
